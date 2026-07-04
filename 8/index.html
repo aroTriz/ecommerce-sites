@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>RUSH — Sportswear & Fitness</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#fff;color:#111;overflow-x:hidden}
+::selection{background:#ea4c2a;color:#fff}
+
+/* ─── Nav ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid #eee}
+.logo{font-size:26px;font-weight:900;letter-spacing:-1px;color:#111}
+.logo span{color:#ea4c2a}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:#555;text-decoration:none;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1px;transition:color .3s}
+.nav-links a:hover{color:#ea4c2a}
+
+/* ─── Hero ─── */
+.hero{min-height:100vh;display:flex;background:#111}
+.hero-left{width:50%;display:flex;flex-direction:column;justify-content:center;padding:80px 64px;color:#fff}
+.hero-left .tag{display:inline-flex;align-items:center;gap:6px;background:#ea4c2a;padding:6px 14px;font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:20px}
+.hero-left h1{font-size:clamp(40px,5vw,72px);font-weight:900;line-height:.95;margin-bottom:16px;text-transform:uppercase}
+.hero-left h1 span{color:#ea4c2a}
+.hero-left p{color:rgba(255,255,255,.5);font-size:15px;line-height:1.7;margin-bottom:32px;font-weight:300}
+.hero-btn{display:inline-flex;align-items:center;gap:8px;background:#ea4c2a;color:#fff;padding:16px 40px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:all .3s;border:none;cursor:pointer}
+.hero-btn:hover{background:#d43d1e;transform:translateY(-2px)}
+.hero-right{width:50%;overflow:hidden}
+.hero-right img{width:100%;height:100%;object-fit:cover;filter:brightness(.85)}
+
+/* ─── Categories strip ─── */
+.cat-strip{display:flex;gap:0;background:#f5f5f5}
+.cat-strip > div{flex:1;padding:32px 16px;text-align:center;border-right:1px solid #e5e5e5;transition:all .3s;cursor:pointer}
+.cat-strip > div:last-child{border-right:none}
+.cat-strip > div:hover{background:#ea4c2a;color:#fff}
+.cat-strip .icon{font-size:28px;margin-bottom:6px}
+.cat-strip .name{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+
+/* ─── Products ─── */
+.section{padding:120px 48px}
+.section-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:48px;max-width:1200px;margin-left:auto;margin-right:auto}
+.section-header h2{font-size:32px;font-weight:800;letter-spacing:-1px;text-transform:uppercase}
+.section-header h2 span{color:#ea4c2a}
+.section-header a{color:#888;font-size:12px;font-weight:600;text-decoration:none;text-transform:uppercase;letter-spacing:1px;transition:color .3s}
+.section-header a:hover{color:#ea4c2a}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1200px;margin:0 auto}
+.prod-card{position:relative;overflow:hidden;background:#fafafa;border-radius:8px;transition:all .4s}
+.prod-card:hover{background:#fff;box-shadow:0 8px 24px rgba(0,0,0,.06);transform:translateY(-4px)}
+.prod-card img{width:100%;height:280px;object-fit:cover;transition:transform .5s}
+.prod-card:hover img{transform:scale(1.03)}
+.prod-card .info{padding:20px}
+.prod-card .info .cat{font-size:10px;color:#bbb;font-weight:600;text-transform:uppercase;letter-spacing:1px}
+.prod-card .info h3{font-size:16px;font-weight:700;margin:4px 0}
+.prod-card .info .price{font-size:16px;font-weight:700;color:#ea4c2a;margin-top:4px}
+.prod-card .tag-new{position:absolute;top:12px;left:12px;background:#ea4c2a;color:#fff;padding:4px 10px;font-size:10px;font-weight:700;border-radius:4px}
+
+/* ─── Banner ─── */
+.banner{background:#111;color:#fff;padding:80px 48px;text-align:center}
+.banner h2{font-size:clamp(28px,4vw,52px);font-weight:900;text-transform:uppercase;letter-spacing:-1px;margin-bottom:12px}
+.banner h2 span{color:#ea4c2a}
+.banner p{color:rgba(255,255,255,.4);font-size:14px;margin-bottom:24px}
+.banner .btn{display:inline-block;background:#ea4c2a;color:#fff;padding:14px 40px;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:background .3s}
+.banner .btn:hover{background:#d43d1e}
+
+/* ─── Stats ─── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1000px;margin:60px auto 0}
+.stat{text-align:center;padding:24px}
+.stat .num{font-size:36px;font-weight:900;color:#ea4c2a}
+.stat .lbl{font-size:11px;color:#888;text-transform:uppercase;letter-spacing:1px;font-weight:600;margin-top:4px}
+
+/* ─── Footer ─── */
+footer{background:#111;color:rgba(255,255,255,.4);padding:48px;text-align:center}
+footer .social{display:flex;justify-content:center;gap:24px;margin-bottom:16px}
+footer .social a{color:rgba(255,255,255,.3);text-decoration:none;font-size:12px;transition:color .3s}
+footer .social a:hover{color:#ea4c2a}
+footer p{font-size:11px}
+
+@media(max-width:768px){
+  .hero{flex-direction:column}
+  .hero-left,.hero-right{width:100%}
+  .hero-right{height:50vh}
+  .hero-left{padding:40px 24px}
+  .cat-strip{flex-wrap:wrap}
+  .cat-strip > div{flex:50%}
+  .section{padding:64px 20px}
+  .section-header{flex-direction:column;align-items:flex-start;gap:8px}
+  .nav-links{display:none}
+  nav{padding:14px 20px}
+  .stats{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">R<span>USH</span></div>
+    <ul class="nav-links">
+        <li><a href="#new">New Drops</a></li>
+        <li><a href="#men">Men</a></li>
+        <li><a href="#women">Women</a></li>
+        <li><a href="#gear">Gear</a></li>
+        <li><a href="#sale">Sale</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-left">
+        <div class="tag">🔥 New Collection</div>
+        <h1>Train Like<br>An <span>Athlete</span></h1>
+        <p>Engineered for performance. Designed for the relentless. Gear up with the latest in sports innovation and push beyond your limits.</p>
+        <a href="#new" class="hero-btn">Shop Now →</a>
+    </div>
+    <div class="hero-right"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=900&q=85" alt="Fitness"></div>
+</section>
+
+<div class="cat-strip">
+    <div><div class="icon">👟</div><div class="name">Footwear</div></div>
+    <div><div class="icon">👕</div><div class="name">Tops</div></div>
+    <div><div class="icon">🩳</div><div class="name">Bottoms</div></div>
+    <div><div class="icon">🎒</div><div class="name">Accessories</div></div>
+    <div><div class="icon">🏋️</div><div class="name">Equipment</div></div>
+</div>
+
+<section class="section" id="new">
+    <div class="section-header">
+        <h2>Just <span>Dropped</span></h2>
+        <a href="#">View All →</a>
+    </div>
+    <div class="prod-grid">
+        <div class="prod-card"><div class="tag-new">New</div><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=500&q=85" alt="Shoe"><div class="info"><div class="cat">Footwear</div><h3>RUSH Alpha V3</h3><div class="price">₱8,990</div></div></div>
+        <div class="prod-card"><div class="tag-new">New</div><img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=500&q=85" alt="Shirt"><div class="info"><div class="cat">Tops</div><h3>Dri-FIT Tee</h3><div class="price">₱2,490</div></div></div>
+        <div class="prod-card"><div class="tag-new">New</div><img src="https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500&q=85" alt="Leggings"><div class="info"><div class="cat">Bottoms</div><h3>Pro Leggings</h3><div class="price">₱3,790</div></div></div>
+        <div class="prod-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=85" alt="Bottle"><div class="info"><div class="cat">Accessories</div><h3>Thermo Bottle 1L</h3><div class="price">₱1,490</div></div></div>
+        <div class="prod-card"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=500&q=85" alt="Mat"><div class="info"><div class="cat">Equipment</div><h3>Premium Yoga Mat</h3><div class="price">₱2,990</div></div></div>
+        <div class="prod-card"><img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?w=500&q=85" alt="Backpack"><div class="info"><div class="cat">Accessories</div><h3>Gym Sack Pro</h3><div class="price">₱3,490</div></div></div>
+    </div>
+</section>
+
+<section class="banner" id="sale">
+    <h2>END OF SEASON <span>SALE</span></h2>
+    <p>Up to 40% off on select styles. While stocks last.</p>
+    <a href="#" class="btn">Shop Sale</a>
+    <div class="stats">
+        <div class="stat"><div class="num">40%</div><div class="lbl">Max Discount</div></div>
+        <div class="stat"><div class="num">500+</div><div class="lbl">Products</div></div>
+        <div class="stat"><div class="num">Free</div><div class="lbl">Shipping Over ₱3K</div></div>
+        <div class="stat"><div class="num">30</div><div class="lbl">Days Return</div></div>
+    </div>
+</section>
+
+<footer>
+    <div class="social">
+        <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">TikTok</a><a href="#">YouTube</a>
+    </div>
+    <p>&copy; 2026 RUSH Sportswear. All rights reserved. Philippines.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.prod-card').forEach(el=>{
+    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';o.unobserve(e.target)}},{threshold:.1});
+    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .4s,transform .4s';
+    o.observe(el)
+});
+</script>
+</body>
+</html>
