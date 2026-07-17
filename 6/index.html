@@ -2,178 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>MÖBEL — Scandinavian Living</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=David+Libre:wght@400;500;700&display=swap" rel="stylesheet">
+<title>MOBEL — Scandinavian Living</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#fefcf7;color:#2d2a24;font-weight:300}
+body{font-family:'Inter',sans-serif;background:#fefcf7;color:#111;overflow-x:hidden}
 ::selection{background:#0051ba;color:#fff}
-a{text-decoration:none;color:inherit}
-
-/* ─── Nav ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(254,252,247,.92);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.04)}
-.logo{font-family:'David Libre',serif;font-size:28px;font-weight:700;color:#0051ba;letter-spacing:2px}
-.logo span{font-weight:400;color:#ffda00}
-.nav-links{display:flex;gap:28px;list-style:none;align-items:center}
-.nav-links a{color:#777;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:500;transition:color .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(180deg,rgba(255,255,255,.95),transparent);transition:background .4s}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px)}
+.logo{font-family:'Inter',serif;font-size:24px;font-weight:700;font-style:italic;color:#0051ba;letter-spacing:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
 .nav-links a:hover{color:#0051ba}
-.nav-links .cta{background:#0051ba;color:#fff!important;padding:10px 22px;border-radius:30px;font-size:11px}
-.nav-links .cta:hover{background:#003d8a}
-
-/* ─── Hero ─── */
-.hero{min-height:90vh;display:flex;align-items:center;padding:80px 48px;background:linear-gradient(135deg,#fefcf7 0%,#f5f0e8 100%);overflow:hidden}
-.hero-content{max-width:540px;position:relative;z-index:2}
-.hero-content .tag{display:inline-block;background:#e8f0fe;color:#0051ba;padding:4px 14px;border-radius:20px;font-size:11px;font-weight:500;margin-bottom:16px}
-.hero-content h1{font-family:'David Libre',serif;font-size:clamp(38px,5vw,58px);font-weight:700;line-height:1.1;margin-bottom:16px;color:#1a1a1a}
-.hero-content p{color:#999;font-size:15px;line-height:1.7;margin-bottom:32px}
-.hero-btn{display:inline-block;background:#0051ba;color:#fff;padding:14px 36px;border-radius:30px;font-size:13px;font-weight:500;letter-spacing:.5px;transition:all .3s}
-.hero-btn:hover{background:#003d8a;transform:translateY(-2px)}
-.hero-image{position:absolute;right:48px;width:55%;height:80vh;display:flex;align-items:center;justify-content:center}
-.hero-image img{max-width:90%;max-height:90%;object-fit:contain;border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,.06)}
-
-/* ─── Rooms ─── */
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.2s ease}
+.hero-content .badge{display:inline-block;padding:6px 20px;border:1px solid #0051ba;color:#0051ba;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:900;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,#0051ba 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
+.btn-primary{background:#0051ba;color:#fff}
+.btn-primary:hover{background:#333;color:#fff;transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#0051ba;color:#0051ba;transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 .section{padding:120px 48px}
-.section-header{text-align:center;margin-bottom:64px}
-.section-header .pre{font-size:11px;color:#0051ba;text-transform:uppercase;letter-spacing:3px;font-weight:500;margin-bottom:8px}
-.section-header h2{font-family:'David Libre',serif;font-size:38px;font-weight:700;color:#1a1a1a;margin-bottom:12px}
-.section-header p{color:#aaa;font-size:14px;max-width:450px;margin:0 auto}
-
-.rooms-scroll{display:flex;gap:20px;overflow-x:auto;padding:8px 0 24px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
-.rooms-scroll::-webkit-scrollbar{height:4px}
-.rooms-scroll::-webkit-scrollbar-track{background:#eee;border-radius:4px}
-.rooms-scroll::-webkit-scrollbar-thumb{background:#0051ba;border-radius:4px}
-.room-card{flex:0 0 380px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#fff;box-shadow:0 4px 20px rgba(0,0,0,.04);transition:transform .4s}
-.room-card:hover{transform:translateY(-4px)}
-.room-card img{width:100%;height:260px;object-fit:cover}
-.room-card .info{padding:24px}
-.room-card h3{font-size:18px;font-weight:600;margin-bottom:4px}
-.room-card .count{color:#0051ba;font-size:13px;font-weight:500}
-.room-card p{color:#aaa;font-size:13px;margin-top:8px;line-height:1.5}
-
-/* ─── Product Grid ─── */
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;max-width:1200px;margin:0 auto}
-.prod-card{background:#fff;border-radius:12px;overflow:hidden;border:1px solid #f0ece4;transition:all .4s;cursor:pointer}
-.prod-card:hover{border-color:#d4cec4;box-shadow:0 8px 24px rgba(0,0,0,.04);transform:translateY(-3px)}
-.prod-card img{width:100%;height:220px;object-fit:cover}
-.prod-card .info{padding:20px}
-.prod-card .info .type{font-size:10px;color:#bbb;text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
-.prod-card .info h3{font-size:16px;font-weight:600;margin:4px 0}
-.prod-card .info .price{font-size:18px;font-weight:600;color:#0051ba;margin-top:8px}
-.prod-card .info .price span{font-size:12px;color:#aaa;font-weight:400;text-decoration:line-through;margin-left:6px}
-
-/* ─── Features ─── */
-.features{background:#f5f0e8;padding:80px 48px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;max-width:1100px;margin:0 auto;border-radius:20px}
-.feat{text-align:center}
-.feat .emoji{font-size:32px;margin-bottom:8px}
-.feat h4{font-size:14px;font-weight:600;margin-bottom:4px}
-.feat p{font-size:12px;color:#999}
-
-/* ─── Inspiration ─── */
-.inspo{display:grid;grid-template-columns:1fr 1fr;gap:4px}
-.inspo img{width:100%;height:400px;object-fit:cover;transition:filter .4s}
-.inspo img:hover{filter:brightness(.9)}
-
-/* ─── Footer ─── */
-footer{background:#1a1a1a;color:rgba(255,255,255,.4);padding:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;font-size:12px}
-footer h4{color:rgba(255,255,255,.6);font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
-footer a{display:block;color:rgba(255,255,255,.3);margin-bottom:6px;transition:color .3s}
-footer a:hover{color:#ffda00}
-footer .copy{grid-column:1/-1;text-align:center;margin-top:32px;font-size:10px;color:rgba(255,255,255,.2)}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-size:42px;font-weight:800;margin-bottom:12px}
+.section-header p{color:rgba(0,0,0,.5);font-size:15px}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.model-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;overflow:hidden;transition:transform .5s,box-shadow .5s;cursor:pointer;position:relative}
+.model-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.model-card img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.model-card:hover img{transform:scale(1.05)}
+.model-info{padding:28px}
+.model-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.model-info .tag{color:#0051ba;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.model-info .price{font-size:28px;font-weight:800;margin-top:12px;color:#0051ba}
+.model-info p{color:rgba(0,0,0,.5);font-size:14px;margin-top:8px;line-height:1.6}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:80px auto 0}
+.spec-card{text-align:center;padding:32px 20px;border:1px solid rgba(0,0,0,.08);border-radius:8px;transition:border-color .3s}
+.spec-card:hover{border-color:#0051ba44}
+.spec-card .num{font-size:36px;font-weight:800;color:#0051ba}
+.spec-card .label{font-size:12px;color:rgba(0,0,0,.5);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.testimonial-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:32px;text-align:center}
+.testimonial-card .stars{color:#0051ba;font-size:18px;margin-bottom:12px}
+.testimonial-card p{color:rgba(0,0,0,.5);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testimonial-card .author{font-weight:600;font-size:13px}
+.testimonial-card .role{color:rgba(0,0,0,.5);font-size:11px;margin-top:4px}
+.contact-section{text-align:center;padding:80px 48px;border-top:1px solid rgba(0,0,0,.08)}
+.contact-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-section p{color:rgba(0,0,0,.5);font-size:14px;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.contact-section .btn{background:#0051ba;color:#fff}
+.contact-section .btn:hover{opacity:.9}
+footer{padding:48px;text-align:center;border-top:1px solid rgba(0,0,0,.08)}
+footer p{color:rgba(0,0,0,.5);font-size:13px}
+.social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.social a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;transition:color .3s}
+.social a:hover{color:#0051ba}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:8px;transition:transform .4s}.gallery img:hover{transform:scale(1.02)}
 
 @media(max-width:768px){
-  .hero{flex-direction:column;padding:100px 24px 40px}
-  .hero-image{position:relative;right:auto;width:100%;height:auto;margin-top:32px}
-  .hero-image img{width:100%}
+  nav{padding:16px 20px}
+  .nav-links{display:none}
   .section{padding:64px 20px}
-  nav{padding:14px 20px}
-  .nav-links a:not(.cta){display:none}
-  .room-card{flex:0 0 300px}
-  .features{grid-template-columns:1fr 1fr;padding:48px 24px}
-  .inspo{grid-template-columns:1fr}
-  footer{grid-template-columns:1fr 1fr;padding:32px 20px}
+  .models-grid,.testimonials{grid-template-columns:1fr}
+  .hero-content h1{font-size:48px}
 }
 </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">MÖ<span>BEL</span></div>
-    <ul class="nav-links">
-        <li><a href="#rooms">Rooms</a></li>
-        <li><a href="#products">Products</a></li>
-        <li><a href="#inspo">Inspiration</a></li>
-        <li><a href="#contact" class="cta">Visit Store</a></li>
-    </ul>
+<nav id="nav">
+  <div class="logo">MOBEL</div>
+  <ul class="nav-links">
+    <li><a href="#models">Products</a></li>
+    <li><a href="#specs">Highlights</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <div class="tag">Spring Collection 2026</div>
-        <h1>Make Your Home<br>A Place You Never<br>Want to Leave</h1>
-        <p>Scandinavian-inspired furniture crafted for mindful living. Clean lines, natural materials, and timeless pieces that bring warmth to every corner.</p>
-        <a href="#products" class="hero-btn">Explore the Collection</a>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=85" alt="MOBEL"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">Design Studio</div>
+    <h1>Modern Living</h1>
+    <p>Design your space. Define your life.</p>
+    <div class="btn-group">
+      <a href="#models" class="btn btn-primary">Browse Collection</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
-    <div class="hero-image"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&q=85" alt="Living Room"></div>
+  </div>
 </section>
 
-<section class="section" id="rooms">
-    <div class="section-header">
-        <div class="pre">Room Inspirations</div>
-        <h2>Find Your Style</h2>
-        <p>Curated looks for every room in your home</p>
+<section id="models" class="section">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked selections for every taste</p>
+  </div>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800&q=85" alt="KIVIK Sofa" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Bestseller</div>
+        <h3>KIVIK Sofa</h3>
+        <p>3-Seater · Washable</p>
+        <div class="price">₱45,000</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=800&q=85" alt="LISABO Table" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Oak</div>
+        <h3>LISABO Table</h3>
+        <p>Solid Ash · Seats 8</p>
+        <div class="price">₱18,500</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=800&q=85" alt="STOCKHOLM Chair" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Design</div>
+        <h3>STOCKHOLM Chair</h3>
+        <p>Leather · Swivel</p>
+        <div class="price">₱32,000</div>
+      </div>
     </div>
-    <div class="rooms-scroll">
-        <div class="room-card"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500&q=85" alt="Living Room"><div class="info"><h3>Living Room</h3><div class="count">48 pieces</div><p>Modular sofas, coffee tables, shelving</p></div></div>
-        <div class="room-card"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=85" alt="Bedroom"><div class="info"><h3>Bedroom</h3><div class="count">36 pieces</div><p>Beds, wardrobes, nightstands</p></div></div>
-        <div class="room-card"><img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&q=85" alt="Dining"><div class="info"><h3>Dining</h3><div class="count">28 pieces</div><p>Tables, chairs, storage units</p></div></div>
-        <div class="room-card"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=500&q=85" alt="Home Office"><div class="info"><h3>Home Office</h3><div class="count">22 pieces</div><p>Desks, ergonomic chairs, lighting</p></div></div>
-        <div class="room-card"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=500&q=85" alt="Outdoor"><div class="info"><h3>Outdoor</h3><div class="count">18 pieces</div><p>Patio sets, loungers, planters</p></div></div>
-    </div>
+  </div>
 </section>
 
-<section class="section" style="background:#fff" id="products">
-    <div class="section-header">
-        <div class="pre">Best Sellers</div>
-        <h2>Popular Pieces</h2>
-        <p>Designed in Sweden. Crafted for life.</p>
-    </div>
-    <div class="prod-grid">
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=500&q=85" alt="Sofa"><div class="info"><div class="type">Seating</div><h3>KIVIK Sofa</h3><div class="price">₱42,990 <span>₱52,000</span></div></div></div>
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=500&q=85" alt="Table"><div class="info"><div class="type">Tables</div><h3>LISABO Dining Table</h3><div class="price">₱18,500 <span>₱22,000</span></div></div></div>
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=500&q=85" alt="Shelf"><div class="info"><div class="type">Storage</div><h3>KALLAX Shelving</h3><div class="price">₱7,990</div></div></div>
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?w=500&q=85" alt="Chair"><div class="info"><div class="type">Seating</div><h3>STOCKHOLM Armchair</h3><div class="price">₱24,990 <span>₱30,000</span></div></div></div>
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?w=500&q=85" alt="Bed"><div class="info"><div class="type">Beds</div><h3>MALM Bed Frame</h3><div class="price">₱19,990</div></div></div>
-        <div class="prod-card"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=500&q=85" alt="Lamp"><div class="info"><div class="type">Lighting</div><h3>HEKTOGRAM Floor Lamp</h3><div class="price">₱4,990</div></div></div>
-    </div>
+<section id="specs" class="section" style="padding-top:0">
+  <div class="specs-grid">
+    <div class="spec-card"><div class="num">200+</div><div class="label">Products</div></div><div class="spec-card"><div class="num">365d</div><div class="label">Returns</div></div><div class="spec-card"><div class="num">100%</div><div class="label">Sustainable</div></div><div class="spec-card"><div class="num">Free</div><div class="label">Delivery</div></div>
+  </div>
 </section>
 
-<div class="features" style="margin:0 48px 80px">
-    <div class="feat"><div class="emoji">🌱</div><h4>Sustainable Materials</h4><p>Responsibly sourced wood & recycled materials</p></div>
-    <div class="feat"><div class="emoji">📦</div><h4>Flat-Pack Delivery</h4><p>Easy transport & assembly at home</p></div>
-    <div class="feat"><div class="emoji">🔄</div><h4>365-Day Returns</h4><p>Love it or return it, no questions asked</p></div>
-    <div class="feat"><div class="emoji">🏠</div><h4>Room Planning</h4><p>Free in-home consultation & 3D planning</p></div>
-</div>
-
-<section class="inspo" id="inspo">
-    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?w=700&q=85" alt="Inspiration 1">
-    <img src="https://images.unsplash.com/photo-1616137466211-f939a420be84?w=700&q=85" alt="Inspiration 2">
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>What Our Clients Say</h2>
+    <p>Real feedback from real customers</p>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible quality and service. Exceeded all my expectations. Will definitely be coming back for more."</p>
+      <div class="author">Maria Santos</div>
+      <div class="role">Verified Buyer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The attention to detail is remarkable. From browsing to delivery, everything was smooth and professional."</p>
+      <div class="author">Juan dela Cruz</div>
+      <div class="role">Repeat Customer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommend! Great value for money and the team went above and beyond to make sure I was satisfied."</p>
+      <div class="author">Ana Reyes</div>
+      <div class="role">Loyal Client</div>
+    </div>
+  </div>
 </section>
 
-<footer id="contact">
-    <div><h4>Customer Service</h4><a href="#">Contact Us</a><a href="#">FAQs</a><a href="#">Delivery</a><a href="#">Returns</a><a href="#">Assembly</a></div>
-    <div><h4>The Company</h4><a href="#">About MÖBEL</a><a href="#">Sustainability</a><a href="#">Careers</a><a href="#">Press</a></div>
-    <div><h4>Visit Us</h4><a href="#">Store Locator</a><a href="#">Makati Showroom</a><a href="#">BGC Flagship</a></div>
-    <div><h4>Follow</h4><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a></div>
-    <p class="copy">&copy; 2026 MÖBEL Philippines. All rights reserved.</p>
+<section id="gallery" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>A glimpse into our world</p>
+  </div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1592078615290-033ee584e267?w=600&q=80" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>Have questions or ready to order? We'd love to hear from you.</p>
+  <a href="mailto:aromintristan@gmail.com" class="btn">Send Message</a>
+  <div style="margin-top:20px;font-size:13px;color:rgba(0,0,0,.5)">aromintristan@gmail.com · +63 945 261 6251</div>
+</section>
+
+<footer>
+  <div class="social">
+    <a href="https://facebook.com/Edywow15">Facebook</a>
+    <a href="https://linkedin.com/in/eddyson-tristan-aromin-2956992a1">LinkedIn</a>
+  </div>
+  <p>&copy; 2026 MOBEL. Built by codED</p>
 </footer>
 
 <script>
-document.querySelectorAll('.prod-card,.room-card').forEach(el=>{
-    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';o.unobserve(e.target)}},{threshold:.1});
-    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s,transform .5s';
-    o.observe(el)
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)},{passive:true})
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';e.target.style.transform='translateY(0)'})},{threshold:.1})
+document.querySelectorAll('.model-card,.testimonial-card,.spec-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1) '+(i*0.1)+'s';io.observe(el)})
 </script>
 </body>
 </html>

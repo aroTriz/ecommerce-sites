@@ -3,239 +3,201 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Il Ristorante — Authentic Italian</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#fcf9f5;color:#2d2a24}
+body{font-family:'Inter',sans-serif;background:#fcf9f5;color:#111;overflow-x:hidden}
 ::selection{background:#d48166;color:#fff}
-
-/* ─── Nav ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(252,249,245,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.04)}
-.logo{font-family:'Playfair Display',serif;font-size:26px;font-weight:700;color:#d48166}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:#666;text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:500;transition:color .3s}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(180deg,rgba(255,255,255,.95),transparent);transition:background .4s}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px)}
+.logo{font-family:'Playfair Display',serif;font-size:24px;font-weight:700;font-style:italic;color:#d48166;letter-spacing:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
 .nav-links a:hover{color:#d48166}
-
-/* ─── Hero ─── */
-.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0}
-.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
-.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(212,129,102,.2),rgba(0,0,0,.4))}
-.hero-content{position:relative;z-index:2;padding:0 48px;max-width:680px;animation:fadeUp 1.2s ease}
-.hero-content .sub{font-family:'Playfair Display',serif;font-size:17px;color:#f5d6c6;font-style:italic;margin-bottom:12px}
-.hero-content h1{font-family:'Playfair Display',serif;font-size:clamp(40px,6vw,80px);color:#fff;font-weight:700;line-height:1.08;margin-bottom:16px}
-.hero-content p{color:rgba(255,255,255,.8);font-size:16px;line-height:1.7;margin-bottom:32px;font-weight:300}
-.btn{display:inline-block;padding:14px 36px;border-radius:30px;text-decoration:none;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;transition:all .3s}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.2s ease}
+.hero-content .badge{display:inline-block;padding:6px 20px;border:1px solid #d48166;color:#d48166;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:900;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,#d48166 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
 .btn-primary{background:#d48166;color:#fff}
-.btn-primary:hover{background:#c06d52;transform:translateY(-2px)}
-.btn-outline{border:1px solid rgba(255,255,255,.4);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.1)}
+.btn-primary:hover{background:#333;color:#fff;transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#d48166;color:#d48166;transform:translateY(-2px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-
-/* ─── Sections ─── */
 .section{padding:120px 48px}
 .section-header{text-align:center;margin-bottom:72px}
-.section-header .sub{font-family:'Playfair Display',serif;font-size:17px;color:#d48166;font-style:italic;margin-bottom:8px}
-.section-header h2{font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:#2d2a24;margin-bottom:12px}
-.section-header p{color:#999;font-size:14px;max-width:480px;margin:0 auto}
-
-/* ─── Story ─── */
-.story{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
-.story img{width:100%;height:400px;object-fit:cover;border-radius:4px}
-.story-text h3{font-family:'Playfair Display',serif;font-size:28px;font-weight:600;margin-bottom:16px}
-.story-text p{color:#777;font-size:14px;line-height:1.8;margin-bottom:12px}
-.story-text .signature{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:#d48166;margin-top:20px}
-
-/* ─── Menu ─── */
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:32px;max-width:1100px;margin:0 auto}
-.menu-item{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.04);transition:all .4s}
-.menu-item:hover{box-shadow:0 12px 32px rgba(0,0,0,.08);transform:translateY(-4px)}
-.menu-item img{width:100%;height:200px;object-fit:cover}
-.menu-info{padding:24px}
-.menu-info .cat{font-size:10px;color:#b8914a;text-transform:uppercase;letter-spacing:2px;font-weight:600}
-.menu-info h3{font-size:20px;font-weight:600;margin:4px 0;font-family:'Playfair Display',serif}
-.menu-info p{color:#999;font-size:13px;line-height:1.5;margin-bottom:8px}
-.menu-info .price{font-size:18px;font-weight:700;color:#d48166}
-
-/* ─── Reservations ─── */
-.reserve{background:#2d2a24;color:#fff}
-.reserve .section-header h2{color:#fff}
-.reserve .section-header p{color:rgba(255,255,255,.5)}
-.reserve-form{max-width:480px;margin:0 auto}
-.reserve-form input,.reserve-form select,.reserve-form textarea{width:100%;padding:14px 18px;margin-bottom:16px;border:1px solid rgba(255,255,255,.15);border-radius:6px;background:rgba(255,255,255,.06);color:#fff;font-size:14px;font-family:'Inter',sans-serif;transition:border-color .3s}
-.reserve-form input:focus,.reserve-form select:focus,.reserve-form textarea:focus{outline:none;border-color:#d48166}
-.reserve-form input::placeholder{color:rgba(255,255,255,.3)}
-.reserve-form select option{color:#000}
-.reserve-form textarea{height:100px;resize:none}
-
-/* ─── Footer ─── */
-footer{background:#1f1d19;color:rgba(255,255,255,.4);padding:48px;text-align:center}
-footer p{font-size:12px}
-.hours{display:flex;justify-content:center;gap:40px;margin:16px 0 24px;flex-wrap:wrap}
-.hours span{font-size:13px}
-.hours strong{color:rgba(255,255,255,.6)}
-
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity .5s,transform .5s}
-.fade-in.show{opacity:1;transform:translateY(0)}
+.section-header h2{font-size:42px;font-weight:800;margin-bottom:12px}
+.section-header p{color:rgba(0,0,0,.5);font-size:15px}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.model-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;overflow:hidden;transition:transform .5s,box-shadow .5s;cursor:pointer;position:relative}
+.model-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.model-card img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.model-card:hover img{transform:scale(1.05)}
+.model-info{padding:28px}
+.model-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.model-info .tag{color:#d48166;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.model-info .price{font-size:28px;font-weight:800;margin-top:12px;color:#d48166}
+.model-info p{color:rgba(0,0,0,.5);font-size:14px;margin-top:8px;line-height:1.6}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:80px auto 0}
+.spec-card{text-align:center;padding:32px 20px;border:1px solid rgba(0,0,0,.08);border-radius:8px;transition:border-color .3s}
+.spec-card:hover{border-color:#d4816644}
+.spec-card .num{font-size:36px;font-weight:800;color:#d48166}
+.spec-card .label{font-size:12px;color:rgba(0,0,0,.5);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.testimonial-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:32px;text-align:center}
+.testimonial-card .stars{color:#d48166;font-size:18px;margin-bottom:12px}
+.testimonial-card p{color:rgba(0,0,0,.5);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testimonial-card .author{font-weight:600;font-size:13px}
+.testimonial-card .role{color:rgba(0,0,0,.5);font-size:11px;margin-top:4px}
+.contact-section{text-align:center;padding:80px 48px;border-top:1px solid rgba(0,0,0,.08)}
+.contact-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-section p{color:rgba(0,0,0,.5);font-size:14px;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.contact-section .btn{background:#d48166;color:#fff}
+.contact-section .btn:hover{opacity:.9}
+footer{padding:48px;text-align:center;border-top:1px solid rgba(0,0,0,.08)}
+footer p{color:rgba(0,0,0,.5);font-size:13px}
+.social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.social a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;transition:color .3s}
+.social a:hover{color:#d48166}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:8px;transition:transform .4s}.gallery img:hover{transform:scale(1.02)}
 
 @media(max-width:768px){
-  .section{padding:64px 24px}
-  .story{grid-template-columns:1fr;gap:32px}
-  .story img{height:280px}
-  nav{padding:16px 24px}
+  nav{padding:16px 20px}
   .nav-links{display:none}
-  .menu-grid{grid-template-columns:1fr}
-  .hours{flex-direction:column;gap:8px}
+  .section{padding:64px 20px}
+  .models-grid,.testimonials{grid-template-columns:1fr}
+  .hero-content h1{font-size:48px}
 }
 </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">Il Ristorante</div>
-    <ul class="nav-links">
-        <li><a href="#story">Our Story</a></li>
-        <li><a href="#menu">Menu</a></li>
-        <li><a href="#reserve">Reserve</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+<nav id="nav">
+  <div class="logo">Il Ristorante</div>
+  <ul class="nav-links">
+    <li><a href="#models">Products</a></li>
+    <li><a href="#specs">Highlights</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=85" alt="Italian Restaurant"></div>
-    <div class="hero-content">
-        <div class="sub">Authentic Italian since 1987</div>
-        <h1>La Dolce Vita<br>on Your Plate</h1>
-        <p>Hand-rolled pasta, wood-fired pizzas, and the finest Italian wines in an intimate setting that feels like home.</p>
-        <div><a href="#menu" class="btn btn-primary">Explore Menu</a> <a href="#reserve" class="btn btn-outline">Reserve a Table</a></div>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1600&q=85" alt="Il Ristorante"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">Est. 1986</div>
+    <h1>Authentic Italian</h1>
+    <p>Passione in ogni piatto. Since 1986.</p>
+    <div class="btn-group">
+      <a href="#models" class="btn btn-primary">Browse Collection</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
+  </div>
 </section>
 
-<section class="section" id="story">
-    <div class="section-header">
-        <div class="sub">La Nostra Storia</div>
-        <h2>Our Story</h2>
+<section id="models" class="section">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked selections for every taste</p>
+  </div>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=800&q=85" alt="Tagliatelle al Tartufo" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Chef Special</div>
+        <h3>Tagliatelle al Tartufo</h3>
+        <p>Black Truffle · Handmade Pasta</p>
+        <div class="price">₱1,850</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=800&q=85" alt="Ossobuco Milanese" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Signature</div>
+        <h3>Ossobuco Milanese</h3>
+        <p>Braised Veal · Saffron Risotto</p>
+        <div class="price">₱2,450</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&q=85" alt="Tiramisu Classico" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Homemade</div>
+        <h3>Tiramisu Classico</h3>
+        <p>Mascarpone · Espresso · Cocoa</p>
+        <div class="price">₱680</div>
+      </div>
     </div>
-    <div class="story">
-        <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=85" alt="Restaurant interior">
-        <div class="story-text">
-            <h3>Three Generations of Passion</h3>
-            <p>Il Ristorante began in a small kitchen in Naples, where our founder, Nonna Maria, perfected her grandmother's recipes. Today, we bring that same warmth and authenticity to every dish we serve.</p>
-            <p>From our hand-kneaded pasta to the San Marzano tomatoes imported directly from Campania, every ingredient tells a story of tradition, love, and the Italian way of life.</p>
-            <div class="signature">— La Famiglia Rossi</div>
-        </div>
-    </div>
+  </div>
 </section>
 
-<section class="section" style="background:#fff" id="menu">
-    <div class="section-header">
-        <div class="sub">Il Nostro Menu</div>
-        <h2>Signature Dishes</h2>
-        <p>Prepared fresh daily using time-honored recipes</p>
-    </div>
-    <div class="menu-grid">
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=600&q=85" alt="Pasta">
-            <div class="menu-info">
-                <div class="cat">Pasta</div>
-                <h3>Tagliatelle al Tartufo</h3>
-                <p>Fresh egg pasta with black truffle, butter, and Parmigiano-Reggiano</p>
-                <div class="price">₱1,850</div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&q=85" alt="Pizza">
-            <div class="menu-info">
-                <div class="cat">Pizza</div>
-                <h3>Margherita DOP</h3>
-                <p>San Marzano tomatoes, fresh mozzarella di bufala, basil</p>
-                <div class="price">₱980</div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=85" alt="Risotto">
-            <div class="menu-info">
-                <div class="cat">Risotto</div>
-                <h3>Risotto ai Funghi</h3>
-                <p>Carnaroli rice with wild mushrooms, thyme, and aged pecorino</p>
-                <div class="price">₱1,450</div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1551218808-0e1e5a3e8e3e?w=600&q=85" alt="Tiramisu">
-            <div class="menu-info">
-                <div class="cat">Dolce</div>
-                <h3>Tiramisu Classico</h3>
-                <p>Espresso-soaked ladyfingers, mascarpone cream, cocoa dust</p>
-                <div class="price">₱520</div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=600&q=85" alt="Bruschetta">
-            <div class="menu-info">
-                <div class="cat">Antipasti</div>
-                <h3>Bruschetta al Pomodoro</h3>
-                <p>Toasted sourdough, vine-ripened tomatoes, garlic, extra virgin olive oil</p>
-                <div class="price">₱420</div>
-            </div>
-        </div>
-        <div class="menu-item">
-            <img src="https://images.unsplash.com/photo-1561525140-c2a4cc68e57c?w=600&q=85" alt="Wine">
-            <div class="menu-info">
-                <div class="cat">Vino</div>
-                <h3>Barolo DOCG 2018</h3>
-                <p>Nebbiolo from Piedmont. Full-bodied with notes of rose, cherry, and truffle</p>
-                <div class="price">₱4,500</div>
-            </div>
-        </div>
-    </div>
+<section id="specs" class="section" style="padding-top:0">
+  <div class="specs-grid">
+    <div class="spec-card"><div class="num">38</div><div class="label">Years of Service</div></div><div class="spec-card"><div class="num">4.9★</div><div class="label">Guest Rating</div></div><div class="spec-card"><div class="num">250+</div><div class="label">Wine Labels</div></div><div class="spec-card"><div class="num">100%</div><div class="label">Fresh Pasta</div></div>
+  </div>
 </section>
 
-<section class="section reserve" id="reserve">
-    <div class="section-header">
-        <div class="sub" style="color:#d48166">Prenota</div>
-        <h2>Reserve a Table</h2>
-        <p>Join us for an unforgettable Italian dining experience</p>
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>What Our Clients Say</h2>
+    <p>Real feedback from real customers</p>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible quality and service. Exceeded all my expectations. Will definitely be coming back for more."</p>
+      <div class="author">Maria Santos</div>
+      <div class="role">Verified Buyer</div>
     </div>
-    <form class="reserve-form" onsubmit="event.preventDefault();alert('Grazie! We will confirm your reservation shortly.');this.reset()">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email Address" required>
-        <input type="tel" placeholder="Phone Number">
-        <select><option>2 Guests</option><option>4 Guests</option><option>6 Guests</option><option>8+ Guests</option></select>
-        <input type="date" required>
-        <input type="time" required>
-        <textarea placeholder="Special requests (allergies, celebrations...)" style="font-style:italic"></textarea>
-        <button type="submit" class="btn btn-primary" style="width:100%;cursor:pointer;border:none">Confirm Reservation</button>
-    </form>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The attention to detail is remarkable. From browsing to delivery, everything was smooth and professional."</p>
+      <div class="author">Juan dela Cruz</div>
+      <div class="role">Repeat Customer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommend! Great value for money and the team went above and beyond to make sure I was satisfied."</p>
+      <div class="author">Ana Reyes</div>
+      <div class="role">Loyal Client</div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contact">
-    <div class="section-header">
-        <div class="sub">Visit Us</div>
-        <h2>Find Il Ristorante</h2>
-    </div>
-    <div style="max-width:600px;margin:0 auto;text-align:center">
-        <p style="color:#888;font-size:14px;line-height:1.8">123 Amorsolo Street, Legazpi Village<br>Makati City, Philippines</p>
-        <p style="font-size:13px;color:#d48166;margin:20px 0">+63 2 8812 3456 · hello@ilristorante.ph</p>
-        <div class="hours">
-            <span><strong>Lunch</strong><br>11:30 AM – 2:30 PM</span>
-            <span><strong>Dinner</strong><br>6:00 PM – 10:00 PM</span>
-            <span><strong>Weekends</strong><br>9:00 AM – 11:00 PM</span>
-        </div>
-    </div>
+<section id="gallery" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>A glimpse into our world</p>
+  </div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1550966871-3ed3cdb51f3a?w=600&q=80" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>Have questions or ready to order? We'd love to hear from you.</p>
+  <a href="mailto:aromintristan@gmail.com" class="btn">Send Message</a>
+  <div style="margin-top:20px;font-size:13px;color:rgba(0,0,0,.5)">aromintristan@gmail.com · +63 945 261 6251</div>
 </section>
 
 <footer>
-    <p style="margin-bottom:8px">&copy; 2026 Il Ristorante by La Famiglia Rossi. All rights reserved.</p>
-    <p>🇮🇹 Authentic Italian Cuisine in the Heart of Makati</p>
+  <div class="social">
+    <a href="https://facebook.com/Edywow15">Facebook</a>
+    <a href="https://linkedin.com/in/eddyson-tristan-aromin-2956992a1">LinkedIn</a>
+  </div>
+  <p>&copy; 2026 Il Ristorante. Built by codED</p>
 </footer>
 
 <script>
-document.querySelectorAll('.menu-item').forEach(el=>{
-    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.classList.add('show');o.unobserve(e.target)}},{threshold:.1});
-    el.classList.add('fade-in');o.observe(el)
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)},{passive:true})
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';e.target.style.transform='translateY(0)'})},{threshold:.1})
+document.querySelectorAll('.model-card,.testimonial-card,.spec-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1) '+(i*0.1)+'s';io.observe(el)})
 </script>
 </body>
 </html>

@@ -3,168 +3,201 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>LUXE — Fine Jewelry</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#0c0b0a;color:#e8e0d8;overflow-x:hidden}
+body{font-family:'Inter',sans-serif;background:#0c0b0a;color:#fff;overflow-x:hidden}
 ::selection{background:#c9a84c;color:#000}
-
-/* ─── Nav ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:24px 56px;background:linear-gradient(180deg,rgba(12,11,10,.95),transparent)}
-.logo{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:#c9a84c;letter-spacing:4px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(180deg,rgba(0,0,0,.95),transparent);transition:background .4s}
+nav.scrolled{background:rgba(0,0,0,.95);backdrop-filter:blur(12px)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;font-style:italic;color:#c9a84c;letter-spacing:2px}
 .nav-links{display:flex;gap:32px;list-style:none}
-.nav-links a{color:rgba(232,224,216,.5);text-decoration:none;font-size:11px;letter-spacing:3px;text-transform:uppercase;font-weight:300;transition:color .4s}
+.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
 .nav-links a:hover{color:#c9a84c}
-
-/* ─── Hero ─── */
-.hero{height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.hero video,.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:brightness(.35)}
-.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(12,11,10,.7) 100%)}
-.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.4s ease}
-.hero-content .sub{font-family:'Cormorant Garamond',serif;font-size:17px;color:#c9a84c;font-style:italic;margin-bottom:12px;letter-spacing:2px}
-.hero-content h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,7vw,96px);font-weight:300;line-height:1;margin-bottom:16px;letter-spacing:4px}
-.hero-content h1 em{font-style:italic;color:#c9a84c}
-.hero-content p{color:rgba(232,224,216,.5);font-size:14px;letter-spacing:3px;font-weight:300;margin-bottom:40px;text-transform:uppercase}
-.hero-btn{display:inline-block;padding:14px 48px;border:1px solid #c9a84c;color:#c9a84c;text-decoration:none;font-size:11px;letter-spacing:4px;text-transform:uppercase;transition:all .4s;font-weight:400}
-.hero-btn:hover{background:#c9a84c;color:#0c0b0a}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.2s ease}
+.hero-content .badge{display:inline-block;padding:6px 20px;border:1px solid #c9a84c;color:#c9a84c;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:900;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,#c9a84c 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
+.btn-primary{background:#c9a84c;color:#000}
+.btn-primary:hover{background:#dbb956;color:#fff;transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#c9a84c;color:#c9a84c;transform:translateY(-2px)}
 @keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
-
-/* ─── Collections ─── */
-.section{padding:140px 56px}
-.section-header{text-align:center;margin-bottom:80px}
-.section-header .pre{font-family:'Cormorant Garamond',serif;font-size:16px;color:#c9a84c;font-style:italic;margin-bottom:8px;letter-spacing:2px}
-.section-header h2{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:400;letter-spacing:2px;margin-bottom:12px}
-.section-header p{color:rgba(232,224,216,.35);font-size:13px;letter-spacing:2px;text-transform:uppercase}
-
-.col-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;max-width:1000px;margin:0 auto}
-.col-card{position:relative;overflow:hidden;aspect-ratio:1;cursor:pointer}
-.col-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s,filter .6s;filter:brightness(.6) saturate(.8)}
-.col-card:hover img{transform:scale(1.06);filter:brightness(1) saturate(1)}
-.col-card .label{position:absolute;bottom:32px;left:32px;z-index:2}
-.col-card .label .name{font-family:'Cormorant Garamond',serif;font-size:28px;color:#fff;font-weight:400;letter-spacing:2px}
-.col-card .label .count{font-size:11px;color:rgba(255,255,255,.5);letter-spacing:2px;text-transform:uppercase;margin-top:4px}
-
-/* ─── Products ─── */
-.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;max-width:1100px;margin:0 auto}
-.prod-card{background:#121110;border:1px solid rgba(201,168,76,.08);border-radius:2px;overflow:hidden;transition:all .5s}
-.prod-card:hover{border-color:rgba(201,168,76,.25);transform:translateY(-4px)}
-.prod-card .img-wrap{height:320px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#121110,#0c0b0a);padding:24px}
-.prod-card .img-wrap img{max-width:70%;max-height:90%;object-fit:contain;transition:transform .6s}
-.prod-card:hover .img-wrap img{transform:scale(1.05)}
-.prod-card .info{padding:24px;text-align:center}
-.prod-card .info .mat{font-size:9px;color:rgba(232,224,216,.3);letter-spacing:3px;text-transform:uppercase;font-weight:400}
-.prod-card .info h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin:6px 0;letter-spacing:1px}
-.prod-card .info .price{font-size:18px;color:#c9a84c;font-weight:300;letter-spacing:1px}
-
-/* ─── Story ─── */
-.story-section{background:#121110;padding:100px 56px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;max-width:1100px;margin:0 auto;border-radius:4px}
-.story-section img{width:100%;height:500px;object-fit:cover}
-.story-text h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;margin-bottom:16px;letter-spacing:2px}
-.story-text p{color:rgba(232,224,216,.45);font-size:14px;line-height:1.9;font-weight:300}
-.story-text .sig{font-family:'Cormorant Garamond',serif;font-size:18px;color:#c9a84c;font-style:italic;margin-top:24px}
-
-/* ─── Footer ─── */
-footer{padding:48px 56px;text-align:center;border-top:1px solid rgba(201,168,76,.08)}
-footer .social{display:flex;justify-content:center;gap:32px;margin-bottom:20px}
-footer .social a{color:rgba(232,224,216,.3);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;transition:color .3s}
-footer .social a:hover{color:#c9a84c}
-footer p{color:rgba(232,224,216,.2);font-size:11px;letter-spacing:1px}
+.section{padding:120px 48px}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-size:42px;font-weight:800;margin-bottom:12px}
+.section-header p{color:rgba(255,255,255,.5);font-size:15px}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.model-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:transform .5s,box-shadow .5s;cursor:pointer;position:relative}
+.model-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.model-card img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.model-card:hover img{transform:scale(1.05)}
+.model-info{padding:28px}
+.model-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.model-info .tag{color:#c9a84c;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.model-info .price{font-size:28px;font-weight:800;margin-top:12px;color:#c9a84c}
+.model-info p{color:rgba(255,255,255,.5);font-size:14px;margin-top:8px;line-height:1.6}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:80px auto 0}
+.spec-card{text-align:center;padding:32px 20px;border:1px solid rgba(255,255,255,.06);border-radius:8px;transition:border-color .3s}
+.spec-card:hover{border-color:#c9a84c44}
+.spec-card .num{font-size:36px;font-weight:800;color:#c9a84c}
+.spec-card .label{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.testimonial-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px;text-align:center}
+.testimonial-card .stars{color:#c9a84c;font-size:18px;margin-bottom:12px}
+.testimonial-card p{color:rgba(255,255,255,.5);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testimonial-card .author{font-weight:600;font-size:13px}
+.testimonial-card .role{color:rgba(255,255,255,.5);font-size:11px;margin-top:4px}
+.contact-section{text-align:center;padding:80px 48px;border-top:1px solid rgba(255,255,255,.06)}
+.contact-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-section p{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.contact-section .btn{background:#c9a84c;color:#000}
+.contact-section .btn:hover{opacity:.9}
+footer{padding:48px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+footer p{color:rgba(255,255,255,.5);font-size:13px}
+.social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.social a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .3s}
+.social a:hover{color:#c9a84c}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:8px;transition:transform .4s}.gallery img:hover{transform:scale(1.02)}
 
 @media(max-width:768px){
-  .section{padding:80px 24px}.col-grid{grid-template-columns:1fr}
-  .story-section{grid-template-columns:1fr;padding:48px 24px}.story-section img{height:300px}
-  nav{padding:16px 24px}.nav-links{display:none}
-  .hero-content h1{font-size:36px}.prod-grid{grid-template-columns:1fr}
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .section{padding:64px 20px}
+  .models-grid,.testimonials{grid-template-columns:1fr}
+  .hero-content h1{font-size:48px}
 }
 </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">LUXE</div>
-    <ul class="nav-links">
-        <li><a href="#collections">Collections</a></li>
-        <li><a href="#products">The Vault</a></li>
-        <li><a href="#story">Heritage</a></li>
-        <li><a href="#contact">Atelier</a></li>
-    </ul>
+<nav id="nav">
+  <div class="logo">LUXE</div>
+  <ul class="nav-links">
+    <li><a href="#models">Products</a></li>
+    <li><a href="#specs">Highlights</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=1600&q=85" alt="Fine Jewelry">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-        <div class="sub">Since 1923 — Maison LUXE</div>
-        <h1>Elegance<br>That <em>Endures</em></h1>
-        <p>Fine jewelry crafted for a lifetime of moments</p>
-        <a href="#collections" class="hero-btn">Discover the Collection</a>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1515562141589-67f022b5c892?w=1600&q=85" alt="LUXE"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">Since 1923</div>
+    <h1>Timeless Elegance</h1>
+    <p>A century of craftsmanship. Wearable art.</p>
+    <div class="btn-group">
+      <a href="#models" class="btn btn-primary">Browse Collection</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
+  </div>
 </section>
 
-<section class="section" id="collections">
-    <div class="section-header">
-        <div class="pre">Curated by Masters</div>
-        <h2>Our Collections</h2>
-        <p>Each piece tells a story of unparalleled craftsmanship</p>
+<section id="models" class="section">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked selections for every taste</p>
+  </div>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=85" alt="Diamond Solitaire" loading="lazy">
+      <div class="model-info">
+        <div class="tag">2.5ct</div>
+        <h3>Diamond Solitaire</h3>
+        <p>VS1 · D Color · Platinum</p>
+        <div class="price">₱345,000</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=800&q=85" alt="Gold Pearl Necklace" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Limited</div>
+        <h3>Gold Pearl Necklace</h3>
+        <p>18K Gold · South Sea Pearls</p>
+        <div class="price">₱128,000</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1611591437281-460bfbe6b03b?w=800&q=85" alt="Sapphire Bracelet" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Heritage</div>
+        <h3>Sapphire Bracelet</h3>
+        <p>Ceylon Sapphire · Diamonds</p>
+        <div class="price">₱95,000</div>
+      </div>
     </div>
-    <div class="col-grid">
-        <div class="col-card"><img src="https://images.unsplash.com/photo-1515562141589-677acb0d1b2e?w=600&q=85" alt="Diamonds"><div class="label"><div class="name">Diamonds</div><div class="count">48 pieces</div></div></div>
-        <div class="col-card"><img src="https://images.unsplash.com/photo-1602751584552-8ba73a1f9be1?w=600&q=85" alt="Gold"><div class="label"><div class="name">Gold</div><div class="count">36 pieces</div></div></div>
-        <div class="col-card"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=85" alt="Pearls"><div class="label"><div class="name">Pearls</div><div class="count">24 pieces</div></div></div>
-        <div class="col-card"><img src="https://images.unsplash.com/photo-1617038220302-7d99cfa4c61e?w=600&q=85" alt="Gemstones"><div class="label"><div class="name">Gemstones</div><div class="count">31 pieces</div></div></div>
-    </div>
+  </div>
 </section>
 
-<section class="section" style="background:#0e0d0c" id="products">
-    <div class="section-header">
-        <div class="pre">The Vault</div>
-        <h2>Signature Pieces</h2>
-        <p>Hand-selected for their exceptional beauty</p>
-    </div>
-    <div class="prod-grid">
-        <div class="prod-card"><div class="img-wrap"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=85" alt="Ring"></div><div class="info"><div class="mat">18K White Gold · Diamond</div><h3>Solitaire Engagement Ring</h3><div class="price">₱285,000</div></div></div>
-        <div class="prod-card"><div class="img-wrap"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=400&q=85" alt="Necklace"></div><div class="info"><div class="mat">18K Gold · South Sea Pearl</div><h3>Pearl Drop Necklace</h3><div class="price">₱192,000</div></div></div>
-        <div class="prod-card"><div class="img-wrap"><img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=400&q=85" alt="Bracelet"></div><div class="info"><div class="mat">Platinum · Blue Sapphire</div><h3>Tennis Bracelet</h3><div class="price">₱345,000</div></div></div>
-        <div class="prod-card"><div class="img-wrap"><img src="https://images.unsplash.com/photo-1617038220302-7d99cfa4c61e?w=400&q=85" alt="Earrings"></div><div class="info"><div class="mat">18K Rose Gold · Morganite</div><h3>Drop Earrings</h3><div class="price">₱168,000</div></div></div>
-    </div>
+<section id="specs" class="section" style="padding-top:0">
+  <div class="specs-grid">
+    <div class="spec-card"><div class="num">100+</div><div class="label">Years</div></div><div class="spec-card"><div class="num">5,000+</div><div class="label">Masterpieces</div></div><div class="spec-card"><div class="num">100%</div><div class="label">Ethical</div></div><div class="spec-card"><div class="num">4.9★</div><div class="label">Rating</div></div>
+  </div>
 </section>
 
-<section class="section" id="story">
-    <div class="story-section">
-        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=85" alt="Atelier">
-        <div class="story-text">
-            <h3>A Century of Craftsmanship</h3>
-            <p>Founded in 1923 in the heart of Paris, Maison LUXE has been creating exceptional jewelry for over a century. Each piece is handcrafted by master artisans who have dedicated their lives to the pursuit of perfection.</p>
-            <p>From sourcing the finest gemstones to the final polish, every step is guided by a single principle: create beauty that transcends time.</p>
-            <div class="sig">— Hériot de la Maison</div>
-        </div>
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>What Our Clients Say</h2>
+    <p>Real feedback from real customers</p>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible quality and service. Exceeded all my expectations. Will definitely be coming back for more."</p>
+      <div class="author">Maria Santos</div>
+      <div class="role">Verified Buyer</div>
     </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The attention to detail is remarkable. From browsing to delivery, everything was smooth and professional."</p>
+      <div class="author">Juan dela Cruz</div>
+      <div class="role">Repeat Customer</div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommend! Great value for money and the team went above and beyond to make sure I was satisfied."</p>
+      <div class="author">Ana Reyes</div>
+      <div class="role">Loyal Client</div>
+    </div>
+  </div>
 </section>
 
-<section class="section" id="contact" style="text-align:center;padding:80px 56px">
-    <div class="section-header">
-        <div class="pre">Private Appointments</div>
-        <h2>Book an Atelier Visit</h2>
-        <p>Experience our collection in an intimate, one-on-one setting</p>
-    </div>
-    <p style="color:rgba(232,224,216,.4);font-size:13px;letter-spacing:2px;margin-bottom:24px">+63 2 8812 9999 · concierge@luxe.ph</p>
-    <a href="#" style="display:inline-block;padding:14px 48px;border:1px solid #c9a84c;color:#c9a84c;text-decoration:none;font-size:11px;letter-spacing:4px;text-transform:uppercase;transition:all .4s">Request an Appointment</a>
+<section id="gallery" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>A glimpse into our world</p>
+  </div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1515562141589-67f022b5c892?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe6b03b?w=600&q=80" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>Have questions or ready to order? We'd love to hear from you.</p>
+  <a href="mailto:aromintristan@gmail.com" class="btn">Send Message</a>
+  <div style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.5)">aromintristan@gmail.com · +63 945 261 6251</div>
 </section>
 
 <footer>
-    <div class="social">
-        <a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Vogue</a><a href="#">Tatler</a>
-    </div>
-    <p>&copy; 2026 Maison LUXE Fine Jewelry. All rights reserved.</p>
+  <div class="social">
+    <a href="https://facebook.com/Edywow15">Facebook</a>
+    <a href="https://linkedin.com/in/eddyson-tristan-aromin-2956992a1">LinkedIn</a>
+  </div>
+  <p>&copy; 2026 LUXE. Built by codED</p>
 </footer>
 
 <script>
-document.querySelectorAll('.col-card,.prod-card').forEach(el=>{
-    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';o.unobserve(e.target)}},{threshold:.1});
-    el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='opacity .6s,transform .6s';
-    o.observe(el)
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)},{passive:true})
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';e.target.style.transform='translateY(0)'})},{threshold:.1})
+document.querySelectorAll('.model-card,.testimonial-card,.spec-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1) '+(i*0.1)+'s';io.observe(el)})
 </script>
 </body>
 </html>

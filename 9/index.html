@@ -2,177 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>The Reading Nook — Bookstore</title>
-<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>The Reading Nook — Bookstore & Café</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Lora:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#fcf9f2;color:#2c1810;font-weight:400}
+body{font-family:'Inter',sans-serif;background:#fcf9f2;color:#111;overflow-x:hidden}
 ::selection{background:#8b4513;color:#fff}
-a{text-decoration:none;color:inherit}
-
-/* ─── Nav ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:rgba(252,249,242,.95);backdrop-filter:blur(12px);border-bottom:1px solid rgba(139,69,19,.08)}
-.logo{font-family:'Lora',serif;font-size:22px;font-weight:700;color:#2c1810}
-.logo span{color:#8b4513}
-.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-.nav-links a{color:#888;font-size:12px;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:#2c1810}
-
-/* ─── Hero ─── */
-.hero{min-height:90vh;display:flex;align-items:center;padding:80px 48px;background:linear-gradient(135deg,#fcf9f2,#f0e8d8);position:relative;overflow:hidden}
-.hero::before{content:'"';position:absolute;right:120px;top:40px;font-family:'Lora',serif;font-size:400px;color:rgba(139,69,19,.04);line-height:1}
-.hero-content{max-width:560px;position:relative;z-index:2}
-.hero-content .tag{font-family:'Lora',serif;font-size:15px;color:#8b4513;font-style:italic;margin-bottom:12px}
-.hero-content h1{font-family:'Lora',serif;font-size:clamp(36px,5vw,56px);font-weight:700;line-height:1.15;margin-bottom:16px;color:#2c1810}
-.hero-content p{color:#999;font-size:15px;line-height:1.7;margin-bottom:32px}
-.hero-btn{display:inline-block;background:#2c1810;color:#fcf9f2;padding:14px 36px;font-size:13px;font-weight:500;border-radius:4px;transition:all .3s}
-.hero-btn:hover{background:#8b4513;transform:translateY(-2px)}
-.hero-image{position:absolute;right:48px;width:45%;height:70vh}
-.hero-image img{width:100%;height:100%;object-fit:cover;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,.06)}
-
-/* ─── Categories ─── */
-.genre-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:0;background:#fff;border-top:1px solid #eee;border-bottom:1px solid #eee}
-.genre-strip a{padding:20px 12px;text-align:center;font-size:11px;color:#888;font-weight:500;transition:all .3s;border-right:1px solid #f0f0f0}
-.genre-strip a:last-child{border-right:none}
-.genre-strip a:hover{background:#fcf9f2;color:#2c1810}
-.genre-strip .emoji{display:block;font-size:20px;margin-bottom:4px}
-
-/* ─── Section ─── */
-.section{padding:100px 48px}
-.section-header{text-align:center;margin-bottom:56px}
-.section-header .pre{font-family:'Lora',serif;font-size:15px;color:#8b4513;font-style:italic;margin-bottom:6px}
-.section-header h2{font-family:'Lora',serif;font-size:34px;font-weight:700;color:#2c1810;margin-bottom:8px}
-.section-header p{color:#bbb;font-size:13px}
-
-/* ─── Book Grid ─── */
-.book-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:24px;max-width:1100px;margin:0 auto}
-.book-card{background:#fff;border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.03);transition:all .4s;border:1px solid #f0e8d8;cursor:pointer}
-.book-card:hover{transform:translateY(-6px);box-shadow:0 12px 32px rgba(44,24,16,.08);border-color:#d4c4b0}
-.book-card img{width:100%;height:280px;object-fit:cover}
-.book-card .info{padding:20px}
-.book-card .info .cat{font-size:9px;color:#bbb;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
-.book-card .info h3{font-family:'Lora',serif;font-size:17px;font-weight:600;margin:4px 0;color:#2c1810}
-.book-card .info .author{font-size:12px;color:#999;font-style:italic}
-.book-card .info .price{font-size:16px;font-weight:600;color:#8b4513;margin-top:8px}
-
-/* ─── Quote ─── */
-.quote-section{background:#2c1810;color:#fcf9f2;padding:80px 48px;text-align:center}
-.quote-section blockquote{font-family:'Lora',serif;font-size:24px;font-style:italic;line-height:1.6;max-width:600px;margin:0 auto 16px;color:#f0e8d8}
-.quote-section cite{font-size:13px;color:rgba(255,255,255,.4)}
-
-/* ─── Events ─── */
-.event-card{display:flex;gap:24px;max-width:700px;margin:0 auto 20px;padding:24px;background:#fff;border-radius:4px;border:1px solid #f0e8d8;transition:all .3s}
-.event-card:hover{border-color:#d4c4b0}
-.event-card .date{text-align:center;min-width:60px}
-.event-card .date .day{font-family:'Lora',serif;font-size:28px;font-weight:700;color:#8b4513;line-height:1}
-.event-card .date .mon{font-size:10px;text-transform:uppercase;color:#bbb;letter-spacing:1px}
-.event-card .det h4{font-size:15px;font-weight:600;margin-bottom:4px}
-.event-card .det p{font-size:12px;color:#999}
-
-/* ─── Footer ─── */
-footer{background:#1a0f0a;color:rgba(255,255,255,.3);padding:48px;text-align:center}
-footer .social{display:flex;justify-content:center;gap:24px;margin-bottom:12px}
-footer .social a{color:rgba(255,255,255,.3);font-size:12px;transition:color .3s}
-footer .social a:hover{color:#8b4513}
-footer p{font-size:11px}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(180deg,rgba(255,255,255,.95),transparent);transition:background .4s}
+nav.scrolled{background:rgba(255,255,255,.95);backdrop-filter:blur(12px)}
+.logo{font-family:'Lora',serif;font-size:24px;font-weight:700;font-style:italic;color:#8b4513;letter-spacing:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:#8b4513}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.2s ease}
+.hero-content .badge{display:inline-block;padding:6px 20px;border:1px solid #8b4513;color:#8b4513;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:900;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,#8b4513 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
+.btn-primary{background:#8b4513;color:#fff}
+.btn-primary:hover{background:#333;color:#fff;transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#8b4513;color:#8b4513;transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.section{padding:120px 48px}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-size:42px;font-weight:800;margin-bottom:12px}
+.section-header p{color:rgba(0,0,0,.5);font-size:15px}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.model-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;overflow:hidden;transition:transform .5s,box-shadow .5s;cursor:pointer;position:relative}
+.model-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.model-card img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.model-card:hover img{transform:scale(1.05)}
+.model-info{padding:28px}
+.model-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.model-info .tag{color:#8b4513;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.model-info .price{font-size:28px;font-weight:800;margin-top:12px;color:#8b4513}
+.model-info p{color:rgba(0,0,0,.5);font-size:14px;margin-top:8px;line-height:1.6}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:80px auto 0}
+.spec-card{text-align:center;padding:32px 20px;border:1px solid rgba(0,0,0,.08);border-radius:8px;transition:border-color .3s}
+.spec-card:hover{border-color:#8b451344}
+.spec-card .num{font-size:36px;font-weight:800;color:#8b4513}
+.spec-card .label{font-size:12px;color:rgba(0,0,0,.5);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.testimonial-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:32px;text-align:center}
+.testimonial-card .stars{color:#8b4513;font-size:18px;margin-bottom:12px}
+.testimonial-card p{color:rgba(0,0,0,.5);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testimonial-card .author{font-weight:600;font-size:13px}
+.testimonial-card .role{color:rgba(0,0,0,.5);font-size:11px;margin-top:4px}
+.contact-section{text-align:center;padding:80px 48px;border-top:1px solid rgba(0,0,0,.08)}
+.contact-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-section p{color:rgba(0,0,0,.5);font-size:14px;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.contact-section .btn{background:#8b4513;color:#fff}
+.contact-section .btn:hover{opacity:.9}
+footer{padding:48px;text-align:center;border-top:1px solid rgba(0,0,0,.08)}
+footer p{color:rgba(0,0,0,.5);font-size:13px}
+.social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.social a{color:rgba(0,0,0,.5);text-decoration:none;font-size:13px;transition:color .3s}
+.social a:hover{color:#8b4513}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:8px;transition:transform .4s}.gallery img:hover{transform:scale(1.02)}
 
 @media(max-width:768px){
-  .hero{flex-direction:column;padding:100px 24px 40px}
-  .hero-image{position:relative;right:auto;width:100%;height:300px;margin-top:32px}
-  .genre-strip{grid-template-columns:repeat(3,1fr)}
-  .section{padding:64px 20px}
-  .book-grid{grid-template-columns:repeat(2,1fr)}
-  nav{padding:14px 20px}
+  nav{padding:16px 20px}
   .nav-links{display:none}
-  .event-card{flex-direction:column}
+  .section{padding:64px 20px}
+  .models-grid,.testimonials{grid-template-columns:1fr}
+  .hero-content h1{font-size:48px}
 }
 </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">The <span>Reading</span> Nook</div>
-    <ul class="nav-links">
-        <li><a href="#books">Books</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#about">About</a></li>
-    </ul>
+<nav id="nav">
+  <div class="logo">The Reading Nook</div>
+  <ul class="nav-links">
+    <li><a href="#models">Products</a></li>
+    <li><a href="#specs">Highlights</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <div class="tag">"A room without books is like a body without a soul."</div>
-        <h1>Find Your Next<br>Great Read</h1>
-        <p>Curated shelves filled with stories that transport you. From timeless classics to modern bestsellers — every book lover's sanctuary in the heart of the city.</p>
-        <a href="#books" class="hero-btn">Browse Books</a>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1600&q=85" alt="The Reading Nook"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">Open Daily</div>
+    <h1>Find Your Story</h1>
+    <p>Browse. Sip. Stay. Discover your next great read.</p>
+    <div class="btn-group">
+      <a href="#models" class="btn btn-primary">Browse Collection</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
-    <div class="hero-image"><img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=700&q=85" alt="Books"></div>
+  </div>
 </section>
 
-<div class="genre-strip">
-    <a href="#"><span class="emoji">📚</span>Fiction</a>
-    <a href="#"><span class="emoji">🔍</span>Mystery</a>
-    <a href="#"><span class="emoji">🚀</span>Sci-Fi</a>
-    <a href="#"><span class="emoji">💕</span>Romance</a>
-    <a href="#"><span class="emoji">🧠</span>Non-Fiction</a>
-    <a href="#"><span class="emoji">📖</span>Poetry</a>
-</div>
-
-<section class="section" id="books">
-    <div class="section-header">
-        <div class="pre">Curated Shelves</div>
-        <h2>Bestsellers & Staff Picks</h2>
-        <p>Handpicked by our booksellers just for you</p>
+<section id="models" class="section">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked selections for every taste</p>
+  </div>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=800&q=85" alt="The Silent Patient" loading="lazy">
+      <div class="model-info">
+        <div class="tag">#1 Bestseller</div>
+        <h3>The Silent Patient</h3>
+        <p>Psychological Thriller</p>
+        <div class="price">₱895</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=800&q=85" alt="Project Hail Mary" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Staff Pick</div>
+        <h3>Project Hail Mary</h3>
+        <p>Sci-Fi · 496p</p>
+        <div class="price">₱1,250</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=800&q=85" alt="The Alchemist" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Classic</div>
+        <h3>The Alchemist</h3>
+        <p>Paulo Coelho · 208p</p>
+        <div class="price">₱695</div>
+      </div>
     </div>
-    <div class="book-grid">
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=85" alt="Book"><div class="info"><div class="cat">Fiction</div><h3>The Silent Echo</h3><div class="author">Maria Santos</div><div class="price">₱795</div></div></div>
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=400&q=85" alt="Book"><div class="info"><div class="cat">Non-Fiction</div><h3>Building in Public</h3><div class="author">James Cruz</div><div class="price">₱1,250</div></div></div>
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1621351183012-e2f9972dd9bf?w=400&q=85" alt="Book"><div class="info"><div class="cat">Sci-Fi</div><h3>Neon Horizons</h3><div class="author">Kai Yamamoto</div><div class="price">₱890</div></div></div>
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=400&q=85" alt="Book"><div class="info"><div class="cat">Mystery</div><h3>The Last Page</h3><div class="author">Clara Reyes</div><div class="price">₱750</div></div></div>
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1524549117010-cc5d0a35f4f0?w=400&q=85" alt="Book"><div class="info"><div class="cat">Romance</div><h3>Letters to You</h3><div class="author">Isabella Tan</div><div class="price">₱690</div></div></div>
-        <div class="book-card"><img src="https://images.unsplash.com/photo-1604866838894-a8b2f5da42fb?w=400&q=85" alt="Book"><div class="info"><div class="cat">Poetry</div><h3>Whispers of Manila</h3><div class="author">Gabriel Cruz</div><div class="price">₱595</div></div></div>
-    </div>
+  </div>
 </section>
 
-<section class="quote-section">
-    <blockquote>"I have always imagined that Paradise will be a kind of library."</blockquote>
-    <cite>— Jorge Luis Borges</cite>
+<section id="specs" class="section" style="padding-top:0">
+  <div class="specs-grid">
+    <div class="spec-card"><div class="num">15</div><div class="label">Years</div></div><div class="spec-card"><div class="num">10K+</div><div class="label">Books</div></div><div class="spec-card"><div class="num">4.8★</div><div class="label">Café</div></div><div class="spec-card"><div class="num">Free</div><div class="label">WiFi</div></div>
+  </div>
 </section>
 
-<section class="section" id="events">
-    <div class="section-header">
-        <div class="pre">Come Visit</div>
-        <h2>Upcoming Events</h2>
-        <p>Join our community of book lovers</p>
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>What Our Clients Say</h2>
+    <p>Real feedback from real customers</p>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible quality and service. Exceeded all my expectations. Will definitely be coming back for more."</p>
+      <div class="author">Maria Santos</div>
+      <div class="role">Verified Buyer</div>
     </div>
-    <div class="event-card">
-        <div class="date"><div class="day">15</div><div class="mon">Jul</div></div>
-        <div class="det"><h4>Book Launch: "The Silent Echo"</h4><p>Join Maria Santos for an evening of readings, discussion, and signed copies of her debut novel.</p></div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The attention to detail is remarkable. From browsing to delivery, everything was smooth and professional."</p>
+      <div class="author">Juan dela Cruz</div>
+      <div class="role">Repeat Customer</div>
     </div>
-    <div class="event-card">
-        <div class="date"><div class="day">22</div><div class="mon">Jul</div></div>
-        <div class="det"><h4>Poetry Open Mic Night</h4><p>Share your work or simply listen. Featured poets + open floor. All are welcome.</p></div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommend! Great value for money and the team went above and beyond to make sure I was satisfied."</p>
+      <div class="author">Ana Reyes</div>
+      <div class="role">Loyal Client</div>
     </div>
-    <div class="event-card">
-        <div class="date"><div class="day">05</div><div class="mon">Aug</div></div>
-        <div class="det"><h4>Children's Storytelling Hour</h4><p>Bring the little ones for an afternoon of stories, crafts, and imagination.</p></div>
-    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>A glimpse into our world</p>
+  </div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600&q=80" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>Have questions or ready to order? We'd love to hear from you.</p>
+  <a href="mailto:aromintristan@gmail.com" class="btn">Send Message</a>
+  <div style="margin-top:20px;font-size:13px;color:rgba(0,0,0,.5)">aromintristan@gmail.com · +63 945 261 6251</div>
 </section>
 
 <footer>
-    <div class="social">
-        <a href="#">Instagram</a><a href="#">Facebook</a><a href="#">Goodreads</a>
-    </div>
-    <p>&copy; 2026 The Reading Nook Bookstore. Quezon City, Philippines.</p>
+  <div class="social">
+    <a href="https://facebook.com/Edywow15">Facebook</a>
+    <a href="https://linkedin.com/in/eddyson-tristan-aromin-2956992a1">LinkedIn</a>
+  </div>
+  <p>&copy; 2026 The Reading Nook. Built by codED</p>
 </footer>
 
 <script>
-document.querySelectorAll('.book-card,.event-card').forEach(el=>{
-    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';o.unobserve(e.target)}},{threshold:.1});
-    el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .5s,transform .5s';
-    o.observe(el)
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)},{passive:true})
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';e.target.style.transform='translateY(0)'})},{threshold:.1})
+document.querySelectorAll('.model-card,.testimonial-card,.spec-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1) '+(i*0.1)+'s';io.observe(el)})
 </script>
 </body>
 </html>

@@ -2,189 +2,202 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>NEXUS — Future Tech</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+<title>NEXUS — Future Electronics</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#0f0f13;color:#e8e8ed;overflow-x:hidden}
-::selection{background:#0071e3;color:#fff}
-
-/* ─── Nav ─── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 48px;background:rgba(15,15,19,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.05)}
-.logo{font-size:22px;font-weight:700;letter-spacing:-.5px;background:linear-gradient(135deg,#fff,#888);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-links{display:flex;gap:28px;list-style:none}
-.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12px;font-weight:500;transition:color .3s}
-.nav-links a:hover{color:#fff}
-
-/* ─── Hero ─── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:80px 48px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-40%;left:-20%;width:80%;height:120%;background:radial-gradient(ellipse,rgba(0,113,227,.08),transparent 70%);pointer-events:none}
-.hero-content{position:relative;z-index:2;max-width:600px}
-.hero-content .badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,113,227,.15);color:#0071e3;padding:6px 16px;border-radius:20px;font-size:12px;font-weight:500;margin-bottom:20px}
-.hero-content h1{font-size:clamp(36px,5vw,64px);font-weight:800;letter-spacing:-2px;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 40%,#666);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-content p{color:rgba(255,255,255,.5);font-size:15px;line-height:1.7;margin-bottom:32px}
-.hero-visual{position:absolute;right:48px;width:50%;height:80%;display:flex;align-items:center;justify-content:center}
-.hero-visual img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 0 60px rgba(0,113,227,.15));animation:float 6s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:12px;text-decoration:none;font-size:14px;font-weight:600;transition:all .3s;border:none;cursor:pointer}
-.btn-primary{background:#0071e3;color:#fff}
-.btn-primary:hover{background:#0077ed;transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,113,227,.3)}
-.btn-outline{border:1px solid rgba(255,255,255,.15);color:#e8e8ed;background:transparent}
-.btn-outline:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.05)}
-
-/* ─── Products ─── */
+body{font-family:'Inter',sans-serif;background:#0f0f13;color:#fff;overflow-x:hidden}
+::selection{background:#0071e3;color:#000}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:linear-gradient(180deg,rgba(0,0,0,.95),transparent);transition:background .4s}
+nav.scrolled{background:rgba(0,0,0,.95);backdrop-filter:blur(12px)}
+.logo{font-family:'Inter',serif;font-size:24px;font-weight:700;font-style:italic;color:#0071e3;letter-spacing:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:1px;text-transform:uppercase;transition:color .3s}
+.nav-links a:hover{color:#0071e3}
+.hero{height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:brightness(.45)}
+.hero-overlay{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 0%,rgba(0,0,0,.6) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;animation:fadeUp 1.2s ease}
+.hero-content .badge{display:inline-block;padding:6px 20px;border:1px solid #0071e3;color:#0071e3;font-size:11px;letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
+.hero-content h1{font-size:clamp(48px,10vw,120px);font-weight:900;line-height:1;margin-bottom:16px;background:linear-gradient(135deg,#fff 30%,#0071e3 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero-content p{font-size:18px;color:rgba(255,255,255,.6);margin-bottom:36px;font-weight:300}
+.btn-group{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 40px;border-radius:4px;text-decoration:none;font-size:13px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;transition:all .3s}
+.btn-primary{background:#0071e3;color:#000}
+.btn-primary:hover{background:#dbb956;color:#fff;transform:translateY(-2px)}
+.btn-outline{border:1px solid rgba(255,255,255,.3);color:#fff}
+.btn-outline:hover{border-color:#0071e3;color:#0071e3;transform:translateY(-2px)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
 .section{padding:120px 48px}
-.section-header{text-align:center;margin-bottom:64px}
-.section-header h2{font-size:38px;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
-.section-header p{color:rgba(255,255,255,.4);font-size:14px}
-
-.products-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1200px;margin:0 auto}
-.product-card{background:#1a1a22;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.04);transition:all .4s}
-.product-card:hover{transform:translateY(-6px);border-color:rgba(0,113,227,.2);box-shadow:0 16px 48px rgba(0,0,0,.3)}
-.product-card .img-wrap{height:260px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#1a1a22,#14141a);padding:32px}
-.product-card .img-wrap img{max-width:80%;max-height:100%;object-fit:contain;transition:transform .5s}
-.product-card:hover .img-wrap img{transform:scale(1.06)}
-.product-card .info{padding:24px}
-.product-card .info .brand{font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:1.5px;font-weight:500}
-.product-card .info h3{font-size:18px;font-weight:600;margin:4px 0 8px}
-.product-card .info p{color:rgba(255,255,255,.4);font-size:13px;line-height:1.5}
-.product-card .info .price-row{display:flex;align-items:center;justify-content:space-between;margin-top:16px}
-.product-card .info .price{font-size:22px;font-weight:700;color:#0071e3}
-.product-card .info .rating{font-size:12px;color:rgba(255,255,255,.4)}
-.product-card .info .rating span{color:#ffd43b}
-
-/* ─── Categories row ─── */
-.cat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1200px;margin:40px auto 0}
-.cat-chip{text-align:center;padding:24px 16px;background:rgba(255,255,255,.03);border-radius:12px;border:1px solid rgba(255,255,255,.04);transition:all .3s;cursor:pointer}
-.cat-chip:hover{background:rgba(0,113,227,.08);border-color:rgba(0,113,227,.15)}
-.cat-chip .icon{font-size:32px;margin-bottom:8px}
-.cat-chip span{font-size:12px;color:rgba(255,255,255,.5);display:block}
-
-/* ─── Specs strip ─── */
-.specs-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:0;max-width:1000px;margin:80px auto 0;text-align:center}
-.specs-strip div{padding:32px 16px;border-right:1px solid rgba(255,255,255,.04)}
-.specs-strip div:last-child{border-right:none}
-.specs-strip .big{font-size:28px;font-weight:800;background:linear-gradient(135deg,#0071e3,#00c6ff);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.specs-strip .lbl{font-size:11px;color:rgba(255,255,255,.3);margin-top:4px;text-transform:uppercase;letter-spacing:1px}
-
-/* ─── Footer ─── */
-footer{background:#0a0a0e;padding:48px;text-align:center;border-top:1px solid rgba(255,255,255,.04)}
-footer .social{display:flex;justify-content:center;gap:24px;margin-bottom:16px}
-footer .social a{color:rgba(255,255,255,.3);text-decoration:none;font-size:13px;transition:color .3s}
-footer .social a:hover{color:#0071e3}
-footer p{color:rgba(255,255,255,.2);font-size:12px}
+.section-header{text-align:center;margin-bottom:72px}
+.section-header h2{font-size:42px;font-weight:800;margin-bottom:12px}
+.section-header p{color:rgba(255,255,255,.5);font-size:15px}
+.models-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+.model-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;overflow:hidden;transition:transform .5s,box-shadow .5s;cursor:pointer;position:relative}
+.model-card:hover{transform:translateY(-8px);box-shadow:0 24px 48px rgba(0,0,0,.1)}
+.model-card img{width:100%;height:260px;object-fit:cover;transition:transform .6s}
+.model-card:hover img{transform:scale(1.05)}
+.model-info{padding:28px}
+.model-info h3{font-size:22px;font-weight:700;margin-bottom:4px}
+.model-info .tag{color:#0071e3;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600}
+.model-info .price{font-size:28px;font-weight:800;margin-top:12px;color:#0071e3}
+.model-info p{color:rgba(255,255,255,.5);font-size:14px;margin-top:8px;line-height:1.6}
+.specs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;max-width:1000px;margin:80px auto 0}
+.spec-card{text-align:center;padding:32px 20px;border:1px solid rgba(255,255,255,.06);border-radius:8px;transition:border-color .3s}
+.spec-card:hover{border-color:#0071e344}
+.spec-card .num{font-size:36px;font-weight:800;color:#0071e3}
+.spec-card .label{font-size:12px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:6px}
+.testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;max-width:1000px;margin:0 auto}
+.testimonial-card{background:#111;border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:32px;text-align:center}
+.testimonial-card .stars{color:#0071e3;font-size:18px;margin-bottom:12px}
+.testimonial-card p{color:rgba(255,255,255,.5);font-size:14px;line-height:1.7;font-style:italic;margin-bottom:16px}
+.testimonial-card .author{font-weight:600;font-size:13px}
+.testimonial-card .role{color:rgba(255,255,255,.5);font-size:11px;margin-top:4px}
+.contact-section{text-align:center;padding:80px 48px;border-top:1px solid rgba(255,255,255,.06)}
+.contact-section h2{font-size:32px;font-weight:800;margin-bottom:12px}
+.contact-section p{color:rgba(255,255,255,.5);font-size:14px;margin-bottom:32px;max-width:400px;margin-left:auto;margin-right:auto}
+.contact-section .btn{background:#0071e3;color:#000}
+.contact-section .btn:hover{opacity:.9}
+footer{padding:48px;text-align:center;border-top:1px solid rgba(255,255,255,.06)}
+footer p{color:rgba(255,255,255,.5);font-size:13px}
+.social{display:flex;justify-content:center;gap:24px;margin-bottom:20px}
+.social a{color:rgba(255,255,255,.5);text-decoration:none;font-size:13px;transition:color .3s}
+.social a:hover{color:#0071e3}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:800px;margin:0 auto}.gallery img{width:100%;height:260px;object-fit:cover;border-radius:8px;transition:transform .4s}.gallery img:hover{transform:scale(1.02)}
 
 @media(max-width:768px){
-  .hero{flex-direction:column;padding:100px 24px 40px;text-align:center}
-  .hero-visual{position:relative;right:auto;width:80%;margin-top:40px}
-  .section{padding:64px 20px}
+  nav{padding:16px 20px}
   .nav-links{display:none}
-  nav{padding:14px 20px}
-  .cat-row{grid-template-columns:repeat(2,1fr)}
-  .specs-strip{grid-template-columns:repeat(2,1fr)}
-  .specs-strip div:nth-child(2){border-right:none}
-  .products-grid{grid-template-columns:1fr}
+  .section{padding:64px 20px}
+  .models-grid,.testimonials{grid-template-columns:1fr}
+  .hero-content h1{font-size:48px}
 }
 </style>
 </head>
 <body>
-
-<nav>
-    <div class="logo">NEXUS</div>
-    <ul class="nav-links">
-        <li><a href="#products">Products</a></li>
-        <li><a href="#categories">Categories</a></li>
-        <li><a href="#deals">Deals</a></li>
-        <li><a href="#support">Support</a></li>
-    </ul>
+<nav id="nav">
+  <div class="logo">NEXUS</div>
+  <ul class="nav-links">
+    <li><a href="#models">Products</a></li>
+    <li><a href="#specs">Highlights</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
 </nav>
 
 <section class="hero">
-    <div class="hero-content">
-        <div class="badge">⚡ New Arrivals</div>
-        <h1>Tomorrow's Tech,<br>Delivered Today</h1>
-        <p>Premium electronics, curated for performance. From flagship smartphones to pro-grade laptops — experience innovation that outpaces imagination.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <a href="#products" class="btn btn-primary">Shop Now →</a>
-            <a href="#categories" class="btn btn-outline">Browse Categories</a>
-        </div>
+  <div class="hero-bg"><img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=1600&q=85" alt="NEXUS"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="badge">Innovation Hub</div>
+    <h1>Future Tech</h1>
+    <p>Tomorrow's technology. Today.</p>
+    <div class="btn-group">
+      <a href="#models" class="btn btn-primary">Browse Collection</a>
+      <a href="#contact" class="btn btn-outline">Get in Touch</a>
     </div>
-    <div class="hero-visual"><img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=700&q=85" alt="Tech"></div>
+  </div>
 </section>
 
-<section class="section" id="products">
-    <div class="section-header">
-        <h2>Featured Products</h2>
-        <p>Handpicked for peak performance</p>
+<section id="models" class="section">
+  <div class="section-header">
+    <h2>Our Collection</h2>
+    <p>Handpicked selections for every taste</p>
+  </div>
+  <div class="models-grid">
+    <div class="model-card">
+      <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=85" alt="ASUS ROG Zephyrus" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Gaming</div>
+        <h3>ASUS ROG Zephyrus</h3>
+        <p>RTX 4070 · 32GB · 1TB</p>
+        <div class="price">₱129,995</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=800&q=85" alt="Samsung Galaxy S25" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Flagship</div>
+        <h3>Samsung Galaxy S25</h3>
+        <p>256GB · 200MP Camera</p>
+        <div class="price">₱76,990</div>
+      </div>
+    </div><div class="model-card">
+      <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&q=85" alt="Sony WH-1000XM6" loading="lazy">
+      <div class="model-info">
+        <div class="tag">Audio</div>
+        <h3>Sony WH-1000XM6</h3>
+        <p>Noise Cancelling · 40hr</p>
+        <div class="price">₱18,999</div>
+      </div>
     </div>
-    <div class="products-grid">
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1592432678016-e910b452f9a2?w=400&q=85" alt="Laptop"></div>
-            <div class="info"><div class="brand">ASUS ROG</div><h3>Zephyrus G16</h3><p>Intel Core Ultra 9 · RTX 4070 · 32GB RAM · 1TB SSD</p><div class="price-row"><div class="price">₱129,995</div><div class="rating"><span>★</span> 4.8</div></div></div>
-        </div>
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&q=85" alt="Phone"></div>
-            <div class="info"><div class="brand">Samsung</div><h3>Galaxy S26 Ultra</h3><p>200MP Camera · Snapdragon 8 Gen 4 · S Pen · 5G</p><div class="price-row"><div class="price">₱89,990</div><div class="rating"><span>★</span> 4.9</div></div></div>
-        </div>
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&q=85" alt="Headphones"></div>
-            <div class="info"><div class="brand">Sony</div><h3>WH-1000XM6</h3><p>Industry-leading ANC · 40h battery · Hi-Res Audio</p><div class="price-row"><div class="price">₱18,995</div><div class="rating"><span>★</span> 4.9</div></div></div>
-        </div>
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=85" alt="Watch"></div>
-            <div class="info"><div class="brand">Apple</div><h3>Watch Ultra 3</h3><p>Titanium · Action Button · Dive to 100m · S9 Chip</p><div class="price-row"><div class="price">₱49,990</div><div class="rating"><span>★</span> 4.7</div></div></div>
-        </div>
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1620916297397-a4a5402a3c8c?w=400&q=85" alt="Tablet"></div>
-            <div class="info"><div class="brand">Apple</div><h3>iPad Pro M4</h3><p>13" OLED · M4 Chip · Apple Pencil Pro · Ultra Retina</p><div class="price-row"><div class="price">₱79,990</div><div class="rating"><span>★</span> 4.8</div></div></div>
-        </div>
-        <div class="product-card">
-            <div class="img-wrap"><img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&q=85" alt="Speaker"></div>
-            <div class="info"><div class="brand">Marshall</div><h3>Stanmore III</h3><p>Bluetooth 5.3 · Dolby Atmos · 80W · Vintage Design</p><div class="price-row"><div class="price">₱24,990</div><div class="rating"><span>★</span> 4.6</div></div></div>
-        </div>
-    </div>
-
-    <div class="cat-row" id="categories">
-        <div class="cat-chip"><div class="icon">💻</div><span>Laptops</span></div>
-        <div class="cat-chip"><div class="icon">📱</div><span>Smartphones</span></div>
-        <div class="cat-chip"><div class="icon">🎧</div><span>Audio</span></div>
-        <div class="cat-chip"><div class="icon">⌚</div><span>Wearables</span></div>
-    </div>
-
-    <div class="specs-strip">
-        <div><div class="big">Free Shipping</div><div class="lbl">On orders over ₱5,000</div></div>
-        <div><div class="big">2-Year Warranty</div><div class="lbl">All products covered</div></div>
-        <div><div class="big">30-Day Returns</div><div class="lbl">No questions asked</div></div>
-        <div><div class="big">0% Interest</div><div class="lbl">Up to 24 months</div></div>
-    </div>
+  </div>
 </section>
 
-<section class="section" style="background:#0d0d12" id="deals">
-    <div class="section-header">
-        <h2>Limited Offers</h2>
-        <p>Exclusive deals for a limited time</p>
+<section id="specs" class="section" style="padding-top:0">
+  <div class="specs-grid">
+    <div class="spec-card"><div class="num">500+</div><div class="label">Products</div></div><div class="spec-card"><div class="num">2yr</div><div class="label">Warranty</div></div><div class="spec-card"><div class="num">4.9★</div><div class="label">Service</div></div><div class="spec-card"><div class="num">Free</div><div class="label">Shipping</div></div>
+  </div>
+</section>
+
+<section id="testimonials" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>What Our Clients Say</h2>
+    <p>Real feedback from real customers</p>
+  </div>
+  <div class="testimonials">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely incredible quality and service. Exceeded all my expectations. Will definitely be coming back for more."</p>
+      <div class="author">Maria Santos</div>
+      <div class="role">Verified Buyer</div>
     </div>
-    <div style="max-width:500px;margin:0 auto;text-align:center">
-        <div style="font-size:48px;font-weight:800;color:#0071e3;margin-bottom:8px">UP TO 30% OFF</div>
-        <p style="color:rgba(255,255,255,.4);font-size:14px;margin-bottom:24px">Selected items. While stocks last.</p>
-        <a href="#" class="btn btn-primary">View All Deals →</a>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The attention to detail is remarkable. From browsing to delivery, everything was smooth and professional."</p>
+      <div class="author">Juan dela Cruz</div>
+      <div class="role">Repeat Customer</div>
     </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommend! Great value for money and the team went above and beyond to make sure I was satisfied."</p>
+      <div class="author">Ana Reyes</div>
+      <div class="role">Loyal Client</div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="section" style="padding-top:0">
+  <div class="section-header">
+    <h2>Gallery</h2>
+    <p>A glimpse into our world</p>
+  </div>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=600&q=80" alt="" loading="lazy"><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&q=80" alt="" loading="lazy">
+  </div>
+</section>
+
+<section id="contact" class="contact-section">
+  <h2>Get in Touch</h2>
+  <p>Have questions or ready to order? We'd love to hear from you.</p>
+  <a href="mailto:aromintristan@gmail.com" class="btn">Send Message</a>
+  <div style="margin-top:20px;font-size:13px;color:rgba(255,255,255,.5)">aromintristan@gmail.com · +63 945 261 6251</div>
 </section>
 
 <footer>
-    <div class="social">
-        <a href="#">Facebook</a><a href="#">Instagram</a><a href="#">Twitter</a><a href="#">YouTube</a>
-    </div>
-    <p>&copy; 2026 NEXUS Electronics. All rights reserved. Philippines.</p>
+  <div class="social">
+    <a href="https://facebook.com/Edywow15">Facebook</a>
+    <a href="https://linkedin.com/in/eddyson-tristan-aromin-2956992a1">LinkedIn</a>
+  </div>
+  <p>&copy; 2026 NEXUS. Built by codED</p>
 </footer>
 
 <script>
-document.querySelectorAll('.product-card').forEach(el=>{
-    const o=new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';o.unobserve(e.target)}},{threshold:.1});
-    el.style.opacity='0';el.style.transform='translateY(24px)';el.style.transition='opacity .5s,transform .5s';
-    o.observe(el)
-});
+window.addEventListener('scroll',()=>{document.getElementById('nav').classList.toggle('scrolled',window.scrollY>50)},{passive:true})
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.style.opacity='1';e.target.style.transform='translateY(0)'})},{threshold:.1})
+document.querySelectorAll('.model-card,.testimonial-card,.spec-card').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(30px)';el.style.transition='all .6s cubic-bezier(.16,1,.3,1) '+(i*0.1)+'s';io.observe(el)})
 </script>
 </body>
 </html>
